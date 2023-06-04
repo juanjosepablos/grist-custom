@@ -6,10 +6,10 @@
   </head>
   <body>
     <div id="app">
-      <table class="items">
+      <table>
         <tr>
-          <th>Descripcion</th>
-          <th>Precio</th>
+          <th>Description</th>
+          <th>Price</th>
         </tr>
         <template v-for="item in records">
           <tr>
@@ -29,9 +29,6 @@
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
-  grist.ready();
-  grist.onRecords(updateInvoice);
-
   function updateInvoice(records) {
     const data = {
     records: null
@@ -42,6 +39,8 @@
     data: data
     });
 }
+grist.ready();
+grist.onRecords(updateInvoice);
 </script> 
   </body>
 </html>
