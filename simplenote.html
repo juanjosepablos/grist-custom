@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Note</title>
+  </head>
+  <body>
+    <div id="app">
+      <table class="items">
+        <tr>
+          <th>Descripcion</th>
+          <th>Precio</th>
+        </tr>
+        <template v-for="item in records">
+          <tr>
+            <td>{{item.Date}} {{item.Description}}</td>
+            <td>{{item.Price}}</td>
+          </tr>
+        </template>
+          <tr>
+            <td>Total</td>
+            <td></td>
+          </tr>
+      </table>
+    </div>
+    <div class="print">
+      <a href="javascript:window.print()">Imprimir</a>
+    </div>
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+  grist.ready();
+  grist.onRecords(updateInvoice);
+
+  function updateInvoice(records) {
+    const data = {
+    records: null
+    }
+  data.records = records
+  var app = new Vue({
+    el: '#app',
+    data: data
+    });
+}
+</script> 
+  </body>
+</html>
